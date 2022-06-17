@@ -11,9 +11,9 @@ root.render(
     <Context.Provider value={{
         user: new UserBlog(),
     }}>
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
+//         <BrowserRouter>
+        <App />
+//         </BrowserRouter>
     </Context.Provider>,
 
 );
