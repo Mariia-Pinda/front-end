@@ -14,13 +14,17 @@ const generateJwt = (id, email) => {
 class userController {
     async registration(req, res, next) {
         const {email, password} = req.body
+        console.log('17')
         if (!email || !password) {
-            return next(ApiError.badRequest("Incorrect email or password!"))
+            console.log('18')
+            return //next(ApiError.badRequest("Incorrect email or password!"))
         }
         const candidate = await User.findOne({where: {email}})
         if (candidate) {
-            return next(ApiError.badRequest("User exists!"))
+            console.log('23')
+            return // next(ApiError.badRequest("User exists!"))
         }
+        console.log('26')
         const hashPassword = await bcrypt.hash(password, 5)
         const user = await User.create({email, password: hashPassword})
         // const saved = await Saved.create({userId: user.id})
